@@ -1,10 +1,14 @@
-import { Admin } from "./administrator.js";
+import { Admin } from "./administrator.js"
+import { tdInterface} from "./interface.js"
+
 const admin = new Admin()
-const save = ()=>localStorage.setItem("projectList",admin.getProyectsInfo())
-    
-admin.loadProyects(localStorage.getItem("projectList"))
+const it = tdInterface(admin)
+if(localStorage.getItem("projectList")){
 
-
-
-    
+    admin.loadProyects(localStorage.getItem("projectList"))
+}
+it.create()
+localStorage
+const save = () => localStorage.setItem("projectList", admin.getProyectsInfo())
+document.getElementById("save").addEventListener("click",save)
 

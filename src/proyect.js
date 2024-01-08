@@ -3,10 +3,10 @@ export class Proyect {
     constructor(id, title, description, date) {
         this.id = id
         this._title = title
-        this._description = description || "default"
+        this._description = description || false
         this.date = date!=undefined? date: new Date().toLocaleString()
         this.tasks = []
-        this.idTask = 1
+        this.idTask = 0
     }
     getId() {
         return this.id
@@ -35,8 +35,10 @@ export class Proyect {
         return this.date
     }
     addTask(title, desc, priority, finishied) {
-        this.tasks.push(new Task(this.idTask, title, desc, priority, finishied))
+        const newTask = new Task(this.idTask, title, desc, priority, finishied)
         this.idTask++
+        this.tasks.push(newTask)
+        return newTask
     }
     getTask(id) {
         return this.tasks.find(e => e.getTaskId() == id)
