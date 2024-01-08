@@ -3,11 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo list</title>
+    <title>ToDo list</title>
     <link rel="stylesheet" href="style.css">
-    <script type="module" src="main.js"></script>
+    <script type="module" src="main.js" defer></script>
 </head>
 <body>
-    
+    <header>
+        <h1>ToDo List</h1>
+        <div>
+            <button class="main-btn" id="new">New project</button>
+            <button class="main-btn" id="save">Save</button>
+        </div>
+    </header>
+    <div id="content">
+        <nav>
+            <h4></h4>
+        </nav>
+        <main></main>
+        <aside>
+        </aside>
+        <dialog id="project-dialog">
+            <h3>New Project</h3>
+            <form action="#">
+                <label for="p-title">Project Title</label><input type="text" name="project" id="p-title">
+                <label for="p-desc">Description</label><textarea type="text" name="project-desc" id="p-desc"></textarea>
+                <button type="button" id="add-p">Add Project</button>
+            </form>
+        </dialog>
+        <dialog id="task-dialog">
+            <h3 id="t-title">New Task</h3>
+            <form action="#">
+                <label for="task-title">Title</label><input type="text" name="task" id="task-title" placeholder="Task...">
+                <label for="task-desc">Description</label><textarea type="text" name="task-desc" id="task-desc"></textarea>
+                <label for="t-priority">Priority</label>
+                <div>
+                    <span>Min </span>
+                    <input type="range" name="task-priority" id="t-priority" min="0" max="4">
+                    <span> Max</span>
+                </div>
+                <button type="button" id="add-t">Add Task</button>
+            </form>
+        </dialog>
+    </div>
 </body>
 </html>

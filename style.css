@@ -1,4 +1,149 @@
-body{
-    background-color: black;
-    color:cornsilk;
+@import url(./normalize.css);
+
+:root {
+    --background: #101525;
+    --layout: #202538;/* #19376D;*/
+    --item: #31304D;
+    --input: #2c6e7e;/*#AF2655;/*#279EFF;*/
+    --select: #45beae;/*#F875AA;/* #192655;*/
+    --text: #FDF7E4;
+    scroll-behavior: smooth;
+}
+@font-face {
+    font-family: 'Nunito';
+    src: url('./font.ttf') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+  }
+body {
+    font-family: Nunito, sans-serif;
+    text-shadow: 0 0 1px #000;
+    background-color: var(--background);
+    color: var(--text);
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: var(--layout);
+    padding: 0 0.6em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+button {
+    background-color: var(--input);
+    color: var(--text);
+    border-color: var(--item);
+    cursor: pointer;
+    padding: 0.6em;
+    border-radius: 12px;
+    margin: 0.6em auto;
+    max-width: 120px;
+   transition: transform 0.05s;
+    &:hover {
+        border-color: var(--select);
+    }
+    &:active {
+        transform: scale(0.96);
+    }
+}
+#content {
+    padding: 8px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 16px;
+}
+
+.card {
+    width: min(500px, 100svw);
+    background-color: var(--layout);
+    padding: 4px 16px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    position: relative;
+    /*cursor: pointer;*/
+}
+a h3{
+    cursor: pointer;
+    padding: 12px 0px;
+    margin: 0;
+    &:hover{
+        color: var(--select);
+    }
+}
+
+.card span {
+    font-size: 0.8em;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+}
+
+.task{
+    background-color: var(--item);
+    border-radius: 5px;
+    padding: 0px 12px 6px;
+    margin-bottom: 6px;
+    position: relative;
+}
+hr{
+    opacity: 0.2;
+    line-height: 0;
+}
+input[type="checkbox"]{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 16px;
+    border-radius: 10px;
+    translate: 0 16px;
+    cursor: pointer;
+}
+.hidden{
+    display: none;
+}
+
+dialog {
+    width: 300px;
+    margin-right: 4px;
+    border-radius: 10px;
+    background-color: var(--layout);
+    color: var(--text);
+    position: fixed;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+form > span{
+    width: 40px;
+}
+input {
+    background-color: var(--item);
+    color: var(--text);
+}
+textarea{
+    background-color: var(--item);
+    color: var(--text);
+    resize: vertical;
+    min-height: 1.2em;
+}
+#t-desc, #p-desc {
+    background-color: var(--item);
+    color: var(--text);
+    text-wrap: wrap;
+    overflow-y: auto;
+    resize: vertical;
+    min-height: 1.2em;
+    max-height: 12em;
+}
+label {
+    font-family: Nonito, sans-serif;
+    margin-top: 12px;
+    font-weight: bold;
+    text-shadow: 0 0 1px black;
 }
